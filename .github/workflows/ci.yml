@@ -248,7 +248,7 @@ jobs:
         with:
           script: |
             const script = require('${{ github.workspace }}/.github/workflows/commentCodeGeneration.js')
-            await script({ github, context, isSuccess: ${{ steps.diff.outcome == 'success' }} })
+            await script(github, context, ${{ steps.diff.outcome == 'success' }})
 
       - name: Status
         if: ${{ steps.diff.outcome == 'failure' }}

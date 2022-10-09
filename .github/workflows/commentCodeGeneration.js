@@ -4,11 +4,11 @@
  * This script is used by github-script
  * https://github.com/actions/github-script
  *
- * @param github A pre-authenticated octokit/rest.js client with pagination plugins
- * @param context An object containing the context of the workflow run
- * @param isSuccess A boolean indicating whether the workflow was successful
+ * @param {InstanceType<import('@actions/github/lib/utils').GitHub>} github A pre-authenticated octokit/rest.js client with pagination plugins
+ * @param {import('@actions/github').context} context An object containing the context of the workflow run
+ * @param {boolean} isSuccess A boolean indicating whether the workflow was successful
  */
-module.exports = async ({ github, context, isSuccess }) => {
+module.exports = async (github, context, isSuccess) => {
   const { data: comments } = await github.rest.issues.listComments({
     owner: context.repo.owner,
     repo: context.repo.repo,
